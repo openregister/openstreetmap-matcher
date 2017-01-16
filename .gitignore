@@ -9,6 +9,9 @@
 /test/tmp/
 /test/version_tmp/
 /tmp/
+/bin
+tmp-query.osm
+openstreetmap-matcher.gemspec
 
 # Used by dotenv library to load environment variables.
 # .env
