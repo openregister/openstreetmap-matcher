@@ -4,11 +4,11 @@ module OsmCounty
   class << self
 
     def query_county point
-      %[echo "is_in(#{point});
+      query = OpenstreetmapMatcher.query_cmd %'"is_in(#{point});
       area._[admin_level="6"];
-      out meta;" > tmp-query.osm
+      out meta;"'
 
-      curl -s -X POST -d @tmp-query.osm http://overpass-api.de/api/interpreter \
+      %[#{query} \
       | grep 'k="name"' \
       | sed -E 's/^.+v="([^"]+)".+/\\1/']
     end
