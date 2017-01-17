@@ -12,7 +12,11 @@ module OpenstreetmapMatcher
 
     def query_cmd overpass_query
       query = CGI::escape overpass_query.squeeze(' ')
-      %'curl -s http://overpass-api.de/api/interpreter?data=#{query} | osmtogeojson'
+      %'curl -s http://overpass-api.de/api/interpreter?data=#{query}'
+    end
+
+    def query_cmd_to_geojson overpass_query
+      %'#{query_cmd(overpass_query)} | osmtogeojson'
     end
 
     def osm_features name, types, bounds, options={}

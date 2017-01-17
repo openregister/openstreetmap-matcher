@@ -4,7 +4,7 @@ module OsmWay
   class << self
 
     def query_highways bounds
-      OpenstreetmapMatcher.query_cmd "[out:json][timeout:60][bbox:#{bounds}];
+      OpenstreetmapMatcher.query_cmd_to_geojson "[out:json][timeout:60][bbox:#{bounds}];
       (
         way[name][highway];
       );

@@ -21,7 +21,7 @@ module OsmFeature
       out body;
       >;
       out skel qt;"
-      OpenstreetmapMatcher.query_cmd query
+      OpenstreetmapMatcher.query_cmd_to_geojson query
     end
 
     def get_features name, type, bounds, options={}
